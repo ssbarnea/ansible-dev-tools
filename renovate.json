@@ -1,4 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>ansible/actions//config/renovate.json"]
+  "extends": ["github>ansible/actions//config/renovate.json"],
+  "packageRules": [
+    {
+      "branchTopic": "{{{depNameSanitized}}}",
+      "description": "Bump minimal required version for ansible-compat and ansible-lint using >= operator",
+      "matchManagers": ["pep621"],
+      "matchPackageNames": [
+        "ansible-compat",
+        "ansible-lint",
+        "ansible-builder",
+        "ansible-creator",
+        "ansible-dev-environment",
+        "ansible-lint",
+        "ansible-navigator",
+        "ansible-sign",
+        "molecule",
+        "pytest-ansible",
+        "tox-ansible"
+      ],
+      "rangeStrategy": "bump"
+    }
+  ]
 }
